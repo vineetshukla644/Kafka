@@ -1,0 +1,7 @@
+com/avro/AvroConsumer.class
+com/avro/Payment$Builder.class
+com/avro/Payment.class
+com/avro/AvroProducer.class
+com/avro/Payment$1.class
+TestConsumer.class
+TestProducer.class
