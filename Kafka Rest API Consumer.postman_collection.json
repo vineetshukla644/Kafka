@@ -1,0 +1,170 @@
+{
+	"info": {
+		"_postman_id": "61cf0f23-d2b2-4ce9-956c-b53a7a109685",
+		"name": "Kafka Rest API Consumer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create consumer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.kafka.v2+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"my_consumer4\",\r\n  \"format\": \"binary\",\r\n  \"auto.offset.reset\": \"earliest\",\r\n  \"auto.commit.enable\":\"false\"\r\n}"
+				},
+				"url": {
+					"raw": "http://192.168.99.100:8082/consumers/testgroup4/",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"99",
+						"100"
+					],
+					"port": "8082",
+					"path": [
+						"consumers",
+						"testgroup4",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create subscriber",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.kafka.v2+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"topics\": [\r\n    \"sample\"\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "http://192.168.99.100:8082/consumers/testgroup4/instances/my_consumer4/subscription",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"99",
+						"100"
+					],
+					"port": "8082",
+					"path": [
+						"consumers",
+						"testgroup4",
+						"instances",
+						"my_consumer4",
+						"subscription"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consume data",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.kafka.binary.v2+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://192.168.99.100:8082/consumers/testgroup4/instances/my_consumer4/records?max_bytes=300000",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"99",
+						"100"
+					],
+					"port": "8082",
+					"path": [
+						"consumers",
+						"testgroup4",
+						"instances",
+						"my_consumer4",
+						"records"
+					],
+					"query": [
+						{
+							"key": "max_bytes",
+							"value": "300000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete consumer ",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.kafka.v2+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://192.168.99.100:8082/consumers/testgroup4/instances/my_consumer4",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"99",
+						"100"
+					],
+					"port": "8082",
+					"path": [
+						"consumers",
+						"testgroup4",
+						"instances",
+						"my_consumer4"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ee2eaf83-0b63-4378-b4ec-25f587763cfd",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "e313378a-5d35-4509-b06b-b30a8db3fecc",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
