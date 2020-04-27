@@ -1,0 +1,10 @@
+{
+  "name": "filein1",
+  "connector.class": "org.apache.kafka.connect.file.FileStreamSourceConnector",
+  "tasks.max": "1",
+  "transforms": "HoistField",
+  "transforms.HoistField.type": "org.apache.kafka.connect.transforms.HoistField$Value",
+  "transforms.HoistField.field": "name",
+  "file": "/home/vineet/filein1.txt",
+  "topic": "testoutput1"
+}
