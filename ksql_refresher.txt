@@ -1,0 +1,35 @@
+
+SET 'auto.offset.reset'='earliest';
+
+
+-----------Creating Initial Stream and Table example------------------------------
+
+CREATE STREAM paymentstream ( id varchar, amount double) WITH (kafka_topic='payment', value_format='AVRO');
+
+CREATE TABLE account_lookup_table WITH (kafka_topic='account_static', value_format='AVRO' , key='account_name');
+
+
+-----------Creating stream from a stream example-----------------------------------------------------------------
+
+CREATE STREAM payment_newstream  AS SELECT  select * FROM paymentstream;
+  
+  
+
+------------------------Aggregation example-----------------------------------------------------------------------
+
+  CREATE TABLE balance AS
+  SELECT id, sum(amount)
+  FROM payment_newstream
+  GROUP BY id
+  EMIT CHANGES;
+  
+  
+
+
+------------------Join example -------------------------------------------------------------------------------------
+
+CREATE STREAM payment_joined  AS
+    SELECT  ID , AMOUNT , CITY
+    FROM PAYMENTSTREAM
+    JOIN ACCOUNT_LOOKUP_TABLE ON PAYMENTSTREAM.id = ACCOUNT_LOOKUP_TABLE.ACCOUNT_NAME;
+  
