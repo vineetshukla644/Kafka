@@ -2,7 +2,7 @@
 SET 'auto.offset.reset'='earliest' ;
 
 
------------Creating Initial Stream and Table example----------------------------------------
+-----------Creating Initial Stream and Table example------------------------------------------
 
 CREATE STREAM paymentstream ( id varchar, amount double) WITH (kafka_topic='payment', value_format='AVRO');
 
