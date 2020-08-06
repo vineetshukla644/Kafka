@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "61fc71aa-f9f5-4165-9769-a771b853b803",
+		"name": "SchedulerAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "start-scheduler",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6000/jobs/start-scheduler",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6000",
+					"path": [
+						"jobs",
+						"start-scheduler"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "schedule-job",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6000/jobs/schedule-job",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6000",
+					"path": [
+						"jobs",
+						"schedule-job"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "manual-trigger",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6000/jobs/manual-trigger",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6000",
+					"path": [
+						"jobs",
+						"manual-trigger"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
